@@ -1,0 +1,123 @@
+{% extends 'home/base/base.html' %} {%load static%} {%block content%}
+
+<section id="hero">
+    <div class="hero head">
+        <div class="title">
+            <h1>
+                BIMCapacitacion
+            </h1>
+            <p>
+                Cursos de Revit para ti :D
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<section class="questions ">
+
+    <div class="text">
+        <h2>
+            Que es BIMCapacitacion...?
+        </h2>
+        <p>
+            BIMCapacitacion es una escuela con cursos enfocados en la metodología BIM, nuestra especialidad está en capacitar a tu equipo o empresa en la aplicación de la metodología BIM. Iniciando con un modelo funcional del cual tomes planos, cortes, detalles,
+            cuantificaciones, elabores planos y logres una coordinación con otras disciplinas y proyectistas. <br> Nuestros cursos son desde cero hasta el plotter!
+        </p>
+    </div>
+    <div class="questions-img"></div>
+
+</section>
+
+<section class="container-vertical listado">
+    <div class="seccion-listado">
+        <div class=" listado-cursos" data-aos="fade-up">
+            <h2>Cursos Presenciales Revit</h2>
+            <ul>
+                <li>
+                    <a href="#">✅ Curso Revit Basico </a>
+                </li>
+                <li>
+                    <a href="#">✅ Curso Revit Arquitectonico</a>
+                </li>
+                <li>
+                    <a href="#">✅ Curso Revit Estructural</a>
+                </li>
+                <li>
+                    <a href="#">✅ Curso Revit MEP</a>
+                </li>
+                <li>
+                    <a href="#">✅ Curso Navisworks Basico</a>
+                </li>
+                <li>
+                    <a href="#">✅ Curso Revit + Navisworks</a>
+                </li>
+            </ul>
+        </div>
+        <div class="listado-cursos-img">
+            <img src="{%static 'img/1Logo-BIM-Capacitacion-transparente.png'%}" alt="">
+        </div>
+    </div>
+</section>
+
+<section class="container listado-post ">
+    <h2>ULTIMOS TUTORIALES </h2>
+
+    {%for post in featured_post_list%}
+    <div class="tarjeta" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+        <a href="#tarjeta">
+            <div class="tarjeta-contenido" id="tarjeta">
+                {%if forloop.counter|divisibleby:2%} {%if post.thumbnail%}
+                <div class="tarjeta-img ">
+                    <img src="{{post.thumbnail.url}}" alt="">
+                </div>
+                {%endif%}{%endif%}
+                <div class="tarjeta-texto text-desktop">
+                    <h2>{{post.title|upper|truncatechars:55}}</h2>
+                    <p>{{post.overview|truncatechars:220}}</p>
+                    <div class="tarjeta-categorias">
+                        <b>{% for category in post.categories.all %}
+                            -{{category|upper}}   {%endfor%}</b>
+                    </div>
+                </div>
+                {%if forloop.counter|divisibleby:2%}{%else%} {%if post.thumbnail%}
+                <div class="tarjeta-img ">
+                    <img src="{{post.thumbnail.url}}" alt="">
+                </div>
+                {%endif%}{%endif%}
+                <div class="tarjeta-texto text-mobile">
+                    <h2>{{post.title|upper|truncatechars:55}}</h2>
+                    <p>{{post.overview|truncatechars:220}}</p>
+
+                    <div class="tarjeta-categorias">
+                        <b>{% for category in post.categories.all %}
+                            -{{category|upper}}   {%endfor%}</b>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+    {%endfor%}
+
+
+</section>
+
+<section class="container contacto">
+    <div class="contacto-img">
+        <img src="{%static 'img/undraw_News_re_6uub.png'%}" alt="">
+    </div>
+    <div class="contacto-text ">
+        <h3>Suscribete para recibir Noticias</h3>
+        <p>Si te gusta nuesrto contenido dejanos tu correo para enviarte noticias de nuestra pagina </p>
+        <form action="">
+            <input type="text" placeholder="Email">
+            <input class="btn-submit" type="submit">
+        </form>
+    </div>
+</section>
+
+
+
+
+
+{%endblock%}

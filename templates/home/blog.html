@@ -1,0 +1,63 @@
+{% extends 'home/base/base.html' %} {%load static%} {%block content%}
+
+<main>
+    <section class="container listado-post ">
+        <div class="blank-content"></div>
+
+        <h1>Publicaciones</h1>
+        <!-- POST -->
+        {%for post in posts_list%}
+        <div class="blog-post">
+            <a href="#post">
+                <div class="post" id="post">
+
+                    {%if post.thumbnail%}
+                    <div class="post-img">
+                        <img src="{{post.thumbnail.url}}" alt="">
+                    </div>
+                    {%endif%}
+
+                    <div class="post-categorias">
+                        <b>{% for category in post.categories.all %}
+                            -{{category|upper}}   {%endfor%}</b>
+                    </div>
+
+                    <div class="post-texto">
+                        <h2>{{post.title|upper|truncatechars:55}}</h2>
+                        <p>
+                            {{post.overview|truncatechars:300 }}
+                        </p>
+                    </div>
+                    <div class="post-icons">
+                        <i class='bx bx-user-circle'></i> {{post.author}} |
+                        <i class='bx bx-time'></i> {{post.timestamp|timesince}} |
+                        <!-- <i class='bx bxs-comment-detail'></i> 7 |
+                            <i class='bx bx-show'></i> 9 -->
+                    </div>
+                </div>
+            </a>
+        </div>
+        {%endfor%}
+
+
+
+    </section>
+    <!-- Pagination -->
+    <section class="pagination-section">
+        <ul class="pagination">
+            <li class="page-item">
+                <a href="" class="page-link"> <i class='bx bx-chevron-left'></i></a>
+            </li>
+            <li class="page-item"><a href="#" class="page-link">1</a></li>
+            <li class="page-item"><a href="#" class="page-link active">2</a></li>
+            <li class="page-item"><a href="#" class="page-link">3</a></li>
+            <li class="page-item">
+                <a href="" class="page-link"> <i class='bx bx-chevron-right'></i></a>
+            </li>
+
+        </ul>
+    </section>
+
+</main>
+
+{%endblock%}
