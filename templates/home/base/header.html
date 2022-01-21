@@ -3,9 +3,11 @@
     <header>
         <nav>
             <section class=" nav">
-                <div class="logo">
-                    <img src="{%static 'img/1Logo-BIM-Capacitacion-768x432-1.png'%}" alt="soy un logo">
-                </div>
+                <a href="{% url 'homepage' %}">
+                    <div class="logo">
+                        <img src="{%static 'img/1Logo-BIM-Capacitacion-768x432-1.png'%}" alt="soy un logo">
+                    </div>
+                </a>
                 <div class="enlaces-header">
                     <a href="{% url 'homepage' %}">Inicio</a>
                     <a href="#">Cursos</a>
