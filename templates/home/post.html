@@ -1,0 +1,220 @@
+{% extends 'home/base/base.html' %} {%load static%} {%block content%}
+
+
+<div class="blank-content"></div>
+
+
+
+
+
+
+<section class="post-detail container">
+
+    {%if user.is_superuser%}
+    <div class="btn-admin">
+        <a href="" id="btn-edit-post">Edit</a>
+        <a href="" id="btn-delete-post">Delete</a>
+    </div>{%else%} {%endif%}
+    <div class="post-img">
+        <img src="{{post.thumbnail.url}}" alt="soy el alt">
+        <div class="post-categorias">
+            <p><b>{% for category in post.categories.all %}
+                            -{{category|upper}}   {%endfor%}</b></p>
+        </div>
+    </div>
+
+    <div class="post-title">
+        <h1>{{post.title|upper}}</h1>
+        <div class="post-icons">
+            <img src="{{post.author.profile_picture.url}}" alt="">
+            <p> {{post.author}} |
+                <i class='bx bx-time'></i> {{post.timestamp|timesince}}
+                <!-- |
+                <i class='bx bxs-comment-detail'></i> 7 |
+                <i class='bx bx-show'></i> 9</p> -->
+        </div>
+    </div>
+
+
+
+
+    <div class="post-content">
+        {{post.content|safe}}
+    </div>
+</section>
+
+<section class="after-post container">
+    <div class="other-post">
+    {%if prev_post%}
+        <a href="{%url 'postpage' prev_post.slug%}">
+            <div class="other-post-btn">
+                <div class="btn-icon">
+                    <i class='bx bx-left-arrow'></i>
+                </div>
+                <div class="btn-text">
+                    <p>Publicacion Anterior</p>
+                    <h4>{{prev_post|upper|truncatechars:50}}</h4>
+                </div>
+            </div>
+        </a>{%else%}
+        <a href="{%url 'blogpage' %}">
+            <div class="other-post-btn">
+                <div class="btn-icon">
+                    <i class='bx bx-left-arrow'></i>
+                </div>
+                <div class="btn-text">
+                    <p>Regresa al</p>
+                    <h4>INICIO</h4>
+                </div>
+            </div>
+        </a>{%endif%}
+
+
+    {%if next_post%}
+        <a href="{%url 'postpage' next_post.slug%}">
+            <div class="other-post-btn">
+                <div class="btn-text">
+                    <p>Siguiente Publicacion</p>
+                    <h4>{{next_post|upper|truncatechars:50}}</h4>
+                </div>
+                <div class="btn-icon">
+                    <i class='bx bx-right-arrow'></i>
+                </div>
+            </div>
+        </a>{%else%}
+        <a href="{%url 'blogpage' %}">
+            <div class="other-post-btn">
+                <div class="btn-text">
+                    <p>Regresa al</p>
+                    <h4>INICIO</h4>
+                </div>
+                <div class="btn-icon">
+                    <i class='bx bx-right-arrow'></i>
+                </div>
+            </div>
+        </a>{%endif%}
+    </div>
+
+
+</section>
+
+<!-- <section class="container post-comment">
+        <h2>Post Comments <small>(2)</small></h2>
+        <div class="comment ">
+            <div class="comment-img">
+                <img src="img/pp.jpg" alt="">
+            </div>
+            <div class="comment-text">
+                <h3>User Name</h3>
+                <h6 class="comment-tiempo">hace 5 minutos</h6>
+                <p>Esto es un comentario :D puede ser mas largo de lo que te imaginas</p>
+            </div>
+        </div>
+        <div class="comment ">
+            <div class="comment-img">
+                <img src="img/pp.jpg" alt="">
+            </div>
+            <div class="comment-text">
+                <h3>User Name</h3>
+                <h6 class="comment-tiempo">hace 5 minutos</h6>
+                <p>Esto es un comentario :D puede ser mas largo de lo que te imaginas</p>
+            </div>
+        </div>
+
+
+        <div class="comment-input">
+            <p>Deja un comentario</p>
+            <textarea name="comment" id="comment" cols="60" rows="5" placeholder="escribe un commentario"></textarea>
+            <input type="submit" name="submit" id="">
+        </div>
+
+    </section> -->
+
+<aside class="container">
+
+    <!-- <div class="aside-section ">
+            <h2>Ultimas publicaciones</h2>
+            <div class="recent-post">
+                <a href="#">
+                    <div class="ultimos-post">
+                        <img src="img/COMO DESCARGAR E INSTALAR REVIT 2020.jpg" alt="">
+                        <div class="ultimos-post-text">
+                            <h2>Como descargar e INstalar revit 2020</h2>
+                            <p>
+                                <i class='bx bxs-comment-detail'></i> 7 |
+                                <i class='bx bx-show'></i> 9
+                            </p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#">
+                    <div class="ultimos-post">
+                        <img src="img/COMO DESCARGAR E INSTALAR REVIT 2020.jpg" alt="">
+                        <div class="ultimos-post-text">
+                            <h2>Como descargar e INstalar revit 2020</h2>
+                            <p>
+                                <i class='bx bxs-comment-detail'></i> 7 |
+                                <i class='bx bx-show'></i> 9
+                            </p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#">
+                    <div class="ultimos-post">
+                        <img src="img/COMO DESCARGAR E INSTALAR REVIT 2020.jpg" alt="">
+                        <div class="ultimos-post-text">
+                            <h2>Como descargar e revit 2020</h2>
+                            <p>
+                                <i class='bx bxs-comment-detail'></i> 7 |
+                                <i class='bx bx-show'></i> 9
+                            </p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#">
+                    <div class="ultimos-post">
+                        <img src="img/COMO DESCARGAR E INSTALAR REVIT 2020.jpg" alt="">
+                        <div class="ultimos-post-text">
+                            <h2>Como descargar e INstalar revit 2020</h2>
+                            <p>
+                                <i class='bx bxs-comment-detail'></i> 7 |
+                                <i class='bx bx-show'></i> 9
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div> -->
+    <div class="aside-section search">
+        <div class="post-search ">
+            <h2>Te ayudo a buscar un tema 😬</h2>
+            <form action="{% url 'search' %}" class="search-form">
+                <div class="form-group">
+                    <input type="text" name="q" placeholder="Que buscas ?">
+                    <button type="submit" class="submit"><i class='bx bx-search-alt' ></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- <div class="aside-section categorias-post">
+            <h2>Categorias</h2>
+            <table id="categories">
+                <tr class="item ">
+                    <td><a href="#">Revit<span>( 3 )</span></a></td>
+                </tr>
+                <tr class="item ">
+                    <td><a href="#">Revit <span>( 3 )</span></a></td>
+                </tr>
+                <tr class="item ">
+                    <td><a href="#">Revit<span>( 3 )</span></a></td>
+                </tr>
+            </table>
+        </div> -->
+        
+</aside>
+
+
+{%endblock%}

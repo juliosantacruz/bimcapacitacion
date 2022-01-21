@@ -65,7 +65,7 @@
 
     {%for post in featured_post_list%}
     <div class="tarjeta" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
-        <a href="#tarjeta">
+        <a href="{%url 'postpage' post.slug%}">
             <div class="tarjeta-contenido" id="tarjeta">
                 {%if forloop.counter|divisibleby:2%} {%if post.thumbnail%}
                 <div class="tarjeta-img ">
@@ -109,8 +109,8 @@
     <div class="contacto-text ">
         <h3>Suscribete para recibir Noticias</h3>
         <p>Si te gusta nuesrto contenido dejanos tu correo para enviarte noticias de nuestra pagina </p>
-        <form action="">
-            <input type="text" placeholder="Email">
+        <form action="/" method="POST">{% csrf_token %}
+            <input type="email" placeholder="Email" name='email'>
             <input class="btn-submit" type="submit">
         </form>
     </div>

@@ -1,6 +1,7 @@
+from email.policy import default
 from django.db import models
 from django.contrib.auth.models import User
-
+from ckeditor_uploader.fields import RichTextUploadingField
 
 # Create your models here.
 
@@ -19,9 +20,10 @@ class Category(models.Model):
 
 
 class Post(models.Model):
+    slug = models.SlugField(unique=True,verbose_name="url del sitio"  )
     title = models.CharField(max_length=100)
     overview = models.TextField()
-    content = models.CharField(max_length=100)
+    content = RichTextUploadingField(blank=True, null=True)
     timestamp = models.DateTimeField(auto_now_add=True)
     #comment_count = models.IntegerField(default = 0)
     #view_count = models.IntegerField(default = 0)

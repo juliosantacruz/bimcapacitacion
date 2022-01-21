@@ -1,0 +1,10 @@
+{% extends 'home/base/base.html' %} {%load static%} {%block content%}
+
+<div class="blank-content"></div>
+soy la pagina del buscador
+{%for result in queryset%}
+
+{{result.title}}
+
+{%endfor%}
+{%endblock%}
