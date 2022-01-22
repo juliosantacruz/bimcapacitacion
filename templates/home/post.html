@@ -18,8 +18,8 @@
     <div class="post-img">
         <img src="{{post.thumbnail.url}}" alt="soy el alt">
         <div class="post-categorias">
-            <p><b>{% for category in post.categories.all %}
-                            -{{category|upper}}   {%endfor%}</b></p>
+            <p><b>{% for tags in post.tags.all %}
+                            -{{tags|upper}}   {%endfor%}</b></p>
         </div>
     </div>
 
@@ -46,7 +46,7 @@
 <section class="after-post container">
     <div class="other-post">
     {%if prev_post%}
-        <a href="{%url 'postpage' prev_post.slug%}">
+        <a href="{%url 'postpage' prev_post.category prev_post.slug%}">
             <div class="other-post-btn">
                 <div class="btn-icon">
                     <i class='bx bx-left-arrow'></i>
@@ -71,7 +71,7 @@
 
 
     {%if next_post%}
-        <a href="{%url 'postpage' next_post.slug%}">
+        <a href="{%url 'postpage' next_post.category next_post.slug%}">
             <div class="other-post-btn">
                 <div class="btn-text">
                     <p>Siguiente Publicacion</p>

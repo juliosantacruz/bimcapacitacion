@@ -60,7 +60,7 @@ def blog(request):
     return render (request, 'home/blog.html', context)
 
 
-def post(request, slug):
+def post(request, category, slug):
     post = get_object_or_404(Post, slug=slug)
     next_post = Post.objects.filter(id__gt=post.id).order_by('id').first()
     prev_post = Post.objects.filter(id__lt=post.id).order_by('-id').first()
