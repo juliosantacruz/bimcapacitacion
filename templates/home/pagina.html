@@ -1,0 +1,34 @@
+{% extends 'home/base/base.html' %} {%load static%} {%block content%}
+
+<div class="blank-content"></div>
+
+<div class="pagina-contenido">
+    <h2>{{pagina.titulo}} </h2>
+    {{pagina.contenido|safe}}
+
+    <div class="contacto-form">
+        <h4>Mandanos un mensaje</h4>
+
+        <form action="" method="POST" class="contacto-form-form">{% csrf_token %}
+            <li>
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" id="email" required>
+            </li>
+            <li>
+                <label for="email">Correo Electronico</label>
+                <input type="email" name="email" id="email" required>
+            </li>
+            <li>
+                <label for="telefono">Telefono</label>
+                <input type="number" name="telefono" id="telefono" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+            </li>
+            <li>
+                <label for="mensaje">Mensaje</label>
+                <textarea name="mensaje" id="mensaje" cols="30" rows="10"></textarea>
+            </li>
+            <input type="submit">
+        </form>
+    </div>
+</div>
+
+{%endblock%}

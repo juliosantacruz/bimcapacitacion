@@ -609,6 +609,49 @@ footer .redes-sociales .youtube:hover {
     background: #0b7dda;
 }
 
+
+/* PAGINAS */
+
+.pagina-contenido {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+}
+
+.pagina-contenido>h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contacto-form {
+    width: 80%;
+}
+
+.contacto-form h4 {
+    font-size: 24px;
+    margin: 20px 0;
+}
+
+.contacto-form li {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+
+.contacto-form label {
+    width: 100%;
+    font-size: 18px;
+}
+
+.contacto-form input {
+    width: 100%;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
 @media screen and (max-width:900px) {
     /* GRID */
     .post-img img {

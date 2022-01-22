@@ -4,8 +4,9 @@ from .models import *
 
 
 class SignupAdmin(admin.ModelAdmin):
-    list_display = ('id','email', ) #visualizar columnas
+    list_display = ('id','email', 'timestamp') #visualizar columnas
 
 
 
 admin.site.register(Signup, SignupAdmin)
+admin.site.register(ContactForm)

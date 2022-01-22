@@ -1,24 +1,23 @@
-
  {%load static %}
-    <header>
-        <nav>
-            <section class=" nav">
-                <a href="{% url 'homepage' %}">
-                    <div class="logo">
-                        <img src="{%static 'img/1Logo-BIM-Capacitacion-768x432-1.png'%}" alt="soy un logo">
-                    </div>
-                </a>
-                <div class="enlaces-header">
-                    <a href="{% url 'homepage' %}">Inicio</a>
-                    <a href="#">Cursos</a>
-                    <a href="{% url 'blogpage' %}">Blog</a>
-                    <a href="#">Iniciar Sesion</a>
+<header>
+    <nav>
+        <section class=" nav">
+            <a href="{% url 'homepage' %}">
+                <div class="logo">
+                    <img src="{%static 'img/1Logo-BIM-Capacitacion-768x432-1.png'%}" alt="soy un logo">
+                </div>
+            </a>
+            <div class="enlaces-header">
+                <a href="{% url 'homepage' %}">Inicio</a>
+                <a href="#">Cursos</a>
+                <a href="{% url 'blogpage' %}">Blog</a>
+                <a href="/contacto">Contacto</a>  
 
-                </div>
-                <div class="boton-menu">
-                    <i class='bx bx-menu'></i>
-                </div>
-            </section>
-        </nav>
-        
-    </header>
+            </div>
+            <div class="boton-menu">
+                <i class='bx bx-menu'></i>
+            </div>
+        </section>
+    </nav>
+
+</header>
