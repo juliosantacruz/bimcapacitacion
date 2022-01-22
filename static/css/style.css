@@ -850,6 +850,7 @@ footer .redes-sociales .youtube:hover {
             display: inline-block;
             height: 30px;
             width: 30px;
+            line-height: 30px;
             border-radius: 50%;
             border: solid 2px black;
             transition: color .3s ease-in-out;
