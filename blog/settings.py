@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from email.policy import default
 from pathlib import Path
-
 from decouple import config
 import os
 
@@ -91,10 +90,10 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 
 #DATABASE HEROKU
 import dj_database_url
-from decouple import config
+
 DATABASES = {
     'default': dj_database_url.config(
-        default=config('DATABASE_URL1')
+        default=config('DATABASE_URL')
     )
 }
 
