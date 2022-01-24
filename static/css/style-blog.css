@@ -36,7 +36,7 @@
     text-align: right;
 }
 
-.post .post-texto h2 {
+.post-texto h2 {
     font-size: 20px;
     padding: 0 0 10px 0;
     text-align: left;
@@ -212,19 +212,16 @@ ul {
     /* GRID */
     .blog-post {
         width: 40%;
+        padding: 0;
     }
     .post-texto>p {
         display: none;
     }
     .post-icons {
-        font-size: 12px;
+        font-size: 10px;
     }
-    /* GRID */
-    .blog-post {
-        width: 46%;
-    }
-    .post-texto {
-        display: none;
+    .post-texto h2 {
+        font-size: 14px;
     }
     /* PAGINATION */
     .pagination .page-item {
