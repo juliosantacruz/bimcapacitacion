@@ -43,6 +43,8 @@ def home(request):
 
 
 def blog(request):
+    nombre_url = request.resolver_match.url_name
+    
     posts_list = Post.objects.all()
 
 
@@ -55,6 +57,7 @@ def blog(request):
     context = {
         'posts_list':paginated_queryset,
         'page_request_var':page_request_var,
+        'nombre_url':nombre_url,
         
     }
     return render (request, 'home/blog.html', context)

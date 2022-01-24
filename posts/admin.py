@@ -9,7 +9,7 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ('id', 'title') #visualizar columnas
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'author', 'timestamp') #visualizar columnas
+    list_display = ('id', 'title', 'featured', 'timestamp') #visualizar columnas
 
 admin.site.register(Author, AuthorAdmin)
 admin.site.register(Category, CategoryAdmin)

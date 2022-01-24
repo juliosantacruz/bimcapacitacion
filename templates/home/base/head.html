@@ -5,12 +5,30 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- META FACEBOOK -->
+{%if post%}<!-- Aqui va el title de los posts -->
 <meta property="og:url" content="" />
 <meta property="og:type" content="article" />
-<meta property="og:title" content="" />
+<meta property="og:title" content="{{post.title}}" />
+<meta property="og:description" content="{{post.overview}}" />
+<meta property="og:image" content="{{post.thumbnail.url}}" />
+<meta property="og:site_name" content="BIMCapacitacion">
+{%elif nombre_url%}<!-- Aqui va el title de los blog -->
+<meta property="og:url" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="BIMCapacitacion Blog" />
 <meta property="og:description" content="" />
 <meta property="og:image" content="https://bimcapacitacion.herokuapp.com/static/img/1Logo-BIM-Capacitacion-768x432-1.png" />
 <meta property="og:site_name" content="BIMCapacitacion">
+{%else%}<!-- Aqui va el title de los demas -->
+<meta property="og:url" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="BIMCapacitacion" />
+<meta property="og:description" content="" />
+<meta property="og:image" content="https://bimcapacitacion.herokuapp.com/static/img/1Logo-BIM-Capacitacion-768x432-1.png" />
+<meta property="og:site_name" content="BIMCapacitacion">
+{%endif%}
+
+
 <!-- META Twitter -->
 <meta name="twitter:title" content="">
 <meta name="twitter:description" content="">
@@ -18,7 +36,15 @@
 <meta name="twitter:card" content="summary_large_image">
 
 
+{%if post%}<!-- Aqui va el title de los posts -->
+<title>{{post.title}}</title>
+{%elif nombre_url%}<!-- Aqui va el title de los blog -->
+<title>BIMCapacitacion Blog</title>
+{%else%}<!-- Aqui va el title de los demas -->
 <title>BIMCapacitacion</title>
+{%endif%}
+
+
 <link rel="icon" href="{%static 'img/Logo-BIMCapacitacion.ico'%}">
 <link rel="stylesheet" href="{% static 'css/style.css'%}">
 <link rel="stylesheet" href="{% static 'css/style-blog.css'%}">
