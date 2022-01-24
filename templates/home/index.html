@@ -67,12 +67,8 @@
     <div class="tarjeta" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
         <a href="{%url 'postpage' post.category post.slug%}">
             <div class="tarjeta-contenido" id="tarjeta">
-                {%if forloop.counter|divisibleby:2%} {%if post.thumbnail%}
-                <div class="tarjeta-img ">
-                    <img src="{{post.thumbnail.url}}" alt="">
-                </div>
-                {%endif%}{%endif%}
-                <div class="tarjeta-texto text-desktop">
+                
+                <div class="tarjeta-texto text-mobile">
                     <h2>{{post.title|upper|truncatechars:55}}</h2>
                     <p>{{post.overview|truncatechars:220}}</p>
                     <div class="tarjeta-categorias">
@@ -85,7 +81,7 @@
                     <img src="{{post.thumbnail.url}}" alt="">
                 </div>
                 {%endif%}{%endif%}
-                <div class="tarjeta-texto text-mobile">
+                <div class="tarjeta-texto text-desktop">
                     <h2>{{post.title|upper|truncatechars:55}}</h2>
                     <p>{{post.overview|truncatechars:220}}</p>
 
@@ -93,7 +89,11 @@
                         <b>{% for tags in post.tags.all %}
                             -{{tags|upper}}   {%endfor%}</b>
                     </div>
+                </div>{%if forloop.counter|divisibleby:2%} {%if post.thumbnail%}
+                <div class="tarjeta-img ">
+                    <img src="{{post.thumbnail.url}}" alt="">
                 </div>
+                {%endif%}{%endif%}
             </div>
         </a>
     </div>

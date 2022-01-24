@@ -652,6 +652,30 @@ footer .redes-sociales .youtube:hover {
     margin-bottom: 20px;
 }
 
+
+/* ERROR404 */
+
+.error404 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.error404 img {
+    width: 40%;
+}
+
+.btn-error404 {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    margin: 0 40px;
+    width: 300px;
+    background: #0074BD;
+    color: white;
+    border-radius: 1rem;
+}
+
 @media screen and (max-width:900px) {
     /* GRID */
     .post-img img {
@@ -729,10 +753,10 @@ footer .redes-sociales .youtube:hover {
     }
     /* QUESTIONS */
     .questions {
-        height: 500px;
+        height: 800px;
     }
     .questions-img {
-        height: 500px;
+        height: 800px;
         background-position-y: 10px;
     }
     .questions .text {
@@ -824,6 +848,17 @@ footer .redes-sociales .youtube:hover {
     iframe {
         width: 100%;
     }
+    /* ERROR404 */
+    .error404 {
+        flex-direction: column;
+        margin: 40px 0;
+    }
+    .error404 img {
+        width: 80%;
+    }
+    .btn-error404 {
+        width: 80%;
+    }
 }
 
 @media screen and (max-width: 500px) {
@@ -838,7 +873,7 @@ footer .redes-sociales .youtube:hover {
     }
     .questions-img {
         width: 80%;
-        height: 50%;
+        height: 70%;
         min-height: 0;
     }
     .questions .text {
