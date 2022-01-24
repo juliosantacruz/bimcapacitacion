@@ -1,3 +1,4 @@
+from datetime import time
 from django.shortcuts import render, get_object_or_404
 from django.db.models import Count, Q
 from .models import *
@@ -28,6 +29,7 @@ def search(request):
 
 
 def home(request):
+    
     featured_post = Post.objects.filter(featured=True)
 
 
