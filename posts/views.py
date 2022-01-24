@@ -3,9 +3,14 @@ from django.db.models import Count, Q
 from .models import *
 from .utils import info_paginator
 from marketing.models import Signup
-from django.core import paginator
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
+from django.views.generic import (TemplateView)
 # Create your views here.
+
+
+class error_404(TemplateView):
+    template_name = "home/error404.html"
+
 
 #Funcion para hacer busquedas
 def search(request):
