@@ -47,6 +47,24 @@ def home(request):
     return render (request, 'home/index.html', context)
 
 
+def descargas(request):
+    nombre_url = request.resolver_match.url_name
+    posts_list = Post.objects.filter(category__title='descargas')
+
+
+    # Codigo del Paginator
+    page_request_var = 'page'
+    post_per_page = 6
+    paginated_queryset = info_paginator(posts_list, request, page_request_var, post_per_page)
+    
+
+    context = {
+        'posts_list':paginated_queryset,
+        'page_request_var':page_request_var,
+        'nombre_url':nombre_url,
+        
+    }
+    return render (request, 'home/blog.html', context)
 
 
 def blog(request):
