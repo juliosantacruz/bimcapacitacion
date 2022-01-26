@@ -30,7 +30,7 @@ def search(request):
 
 def home(request):
     
-    featured_post = Post.objects.filter(featured=True)
+    featured_post = Post.objects.filter(featured=True).order_by('?')[:4]
 
 
     if request.method == 'POST':

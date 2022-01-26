@@ -479,6 +479,11 @@ footer .redes-sociales .youtube:hover {
     text-align: left;
 }
 
+.post-content img {
+    width: 80%;
+    margin: auto;
+}
+
 
 /* AFTER POST */
 
