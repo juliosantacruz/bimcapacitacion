@@ -1,10 +1,31 @@
 {% extends 'home/base/base.html' %} {%load static%} {%block content%}
 
 <div class="blank-content"></div>
-soy la pagina del buscador
-{%for result in queryset%}
 
-{{result.title}}
 
-{%endfor%}
+
+<main>
+    <section class="resultado-contenido">
+        <div class="title">
+            <h2>Resultados</h2>
+            <p>Los resultados de tu busqueda:</p>
+        </div>
+        <div class="resultado-busqueda">
+            <ul>
+                {%for result in queryset%}
+                <a href="{%url 'postpage' result.category result.slug%}">
+                    <li class="resultado-renglon">
+                        <img src="{{result.thumbnail.url}}" alt="{{result.title}}">
+                        <h3>{{result.title}}</h3>
+                    </li>
+                </a>
+                {%endfor%}
+            </ul>
+        </div>
+    </section>
+</main>
+
+
+
+
 {%endblock%}
