@@ -103,3 +103,8 @@ def post(request, category, slug):
         'prev_post':prev_post,
     }
     return render (request, 'home/post.html', context)
+
+
+
+
+    
