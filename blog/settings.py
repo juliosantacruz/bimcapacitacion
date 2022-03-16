@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'paginas',
     'posts',
     'marketing',
+    'cursos',
 
     #Herramientas
     'ckeditor',
