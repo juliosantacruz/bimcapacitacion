@@ -4,7 +4,7 @@ from cursos.models import Cursos
 from .models import *
 # Create your views here.
 
-def home_cursos(request ):
+def home_cursos(request ): #Aqui van todos los cursos
     cursos_list = Cursos.objects.all()
 
     context = {
@@ -14,13 +14,27 @@ def home_cursos(request ):
     return render (request, 'cursos/homeCursos.html', context)
 
 
-def page_curso(request, slug ):
-    curso = get_object_or_404(Cursos, slug=slug)
-
+def page_curso(request, curso_slug ): #Pagina principal del curso 
+    curso = get_object_or_404(Cursos, curso_slug=curso_slug)
+    clases = Clase.objects.all()
+    
 
 
     context = {
     'curso':curso,
+    'clases':clases,
     
     }
-    return render (request, 'cursos/homeCursos.html', context)
+    return render (request, 'cursos/curso.html', context)
+
+
+def page_clase(request, curso_slug, clase_slug ): #Pagina principal del curso 
+    
+    
+
+
+    context = {
+    
+    
+    }
+    return render (request, 'cursos/clase.html', context)

@@ -3,6 +3,7 @@ from posts.models import Author
 # Create your models here.
 from django.contrib.auth.models import User
 from ckeditor_uploader.fields import RichTextUploadingField
+from django.utils.text import slugify
 
 class Student(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -21,7 +22,7 @@ class Tags(models.Model):
 
 
 class Cursos(models.Model):
-    slug = models.SlugField(unique=True,verbose_name="url del sitio"  )
+    curso_slug = models.SlugField(unique=True,verbose_name="url del sitio"  )
     title = models.CharField(max_length=150)
     description = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
@@ -33,7 +34,7 @@ class Cursos(models.Model):
 
 class Clase(models.Model):
     curso = models.ForeignKey(Cursos, on_delete=models.CASCADE)
-    slug = models.SlugField(unique=True,verbose_name="url del sitio"  )
+    clase_slug = models.SlugField(unique=True, blank=True, verbose_name="url del sitio"  )
     title = models.CharField(max_length=100)
     content = RichTextUploadingField(blank=True, null=True)
     timestamp = models.DateTimeField(auto_now_add=True)
@@ -42,6 +43,10 @@ class Clase(models.Model):
     author = models.ForeignKey(Author, on_delete=models.CASCADE, null=True, blank=True )
     thumbnail = models.ImageField(upload_to='media/cursos/thumbnail')
     
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title, allow_unicode=True)
+        super().save(*args, **kwargs)
+
     def __str__(self):
         return self.title
 

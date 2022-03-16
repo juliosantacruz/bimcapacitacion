@@ -13,11 +13,14 @@
 <div class="blank-content"></div>
 <section class="container">
     <div class="cursoList">
+        {%for i in clases%}
+        <a href="{%url 'cursoPage' curso.curso_slug i.clase_slug%}"> asdfd</a>
         <div class="cursoElement">
             <img src="{%static 'img/error404.png'%}" alt="" width="100px">
             <h3>Soy el titulo del Curso</h3>
             <p>soy un curso para tu creciomietn esto es un ejemplo</p>
         </div>
+        {%endfor%}
     </div>
 </section>
 

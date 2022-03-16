@@ -14,7 +14,7 @@
 <section class="container">
     <div class="cursoList">
         {%for i in cursos_list%}
-        <a href="{%url 'cursoPage' i.slug%}"> asdfd</a>
+        <a href="{%url 'cursoPage' i.curso_slug%}"> asdfd</a>
         <div class="cursoElement">
             <img src="{{i.thumbnail.url}}" alt="" width="100px">
             <h3>{{i.title}}</h3>
