@@ -1,4 +1,4 @@
-{% extends 'home/base/base.html' %} {%load static%} {%block content%}
+{% extends 'base/base.html' %} {%load static%} {%block content%}
 
 <section id="hero">
     <div class="hero head">
@@ -67,7 +67,7 @@
     <div class="tarjeta" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
         <a href="{%url 'postpage' post.category post.slug%}">
             <div class="tarjeta-contenido" id="tarjeta">
-                
+
                 <div class="tarjeta-texto text-mobile">
                     <h2>{{post.title|upper|truncatechars:55}}</h2>
                     <p>{{post.overview|truncatechars:220}}</p>

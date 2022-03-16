@@ -1,4 +1,4 @@
-{% extends 'home/base/base.html' %} {%load static%} {%block content%}
+{% extends 'base/base.html' %} {%load static%} {%block content%}
 
 
 <div class="blank-content"></div>
@@ -45,7 +45,7 @@
 
 <section class="after-post container">
     <div class="other-post">
-    {%if prev_post%}
+        {%if prev_post%}
         <a href="{%url 'postpage' prev_post.category prev_post.slug%}">
             <div class="other-post-btn">
                 <div class="btn-icon">
@@ -67,10 +67,7 @@
                     <h4>INICIO</h4>
                 </div>
             </div>
-        </a>{%endif%}
-
-
-    {%if next_post%}
+        </a>{%endif%} {%if next_post%}
         <a href="{%url 'postpage' next_post.category next_post.slug%}">
             <div class="other-post-btn">
                 <div class="btn-text">
@@ -213,7 +210,7 @@
                 </tr>
             </table>
         </div> -->
-        
+
 </aside>
 
 

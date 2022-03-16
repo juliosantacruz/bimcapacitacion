@@ -1,0 +1,27 @@
+{% extends 'base/base.html' %} {%load static%} {%block content%}
+
+
+<div class="blank-content"></div>
+
+
+<section class="container">
+    <div class="cursoTitle">
+        <h2>Cursos BIM</h2>
+        <p>Bienvenido selecciona el curso que te interesa</p>
+    </div>
+</section>
+<div class="blank-content"></div>
+<section class="container">
+    <div class="cursoList">
+        {%for i in cursos_list%}
+        <a href="{%url 'cursoPage' i.slug%}"> asdfd</a>
+        <div class="cursoElement">
+            <img src="{{i.thumbnail.url}}" alt="" width="100px">
+            <h3>{{i.title}}</h3>
+            <p>{{i.description}}</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+{%endblock%}

@@ -1,4 +1,4 @@
-{% extends 'home/base/base.html' %} {%load static%} {%block content%}
+{% extends 'base/base.html' %} {%load static%} {%block content%}
 
 <main>
     <section class="container listado-post ">
@@ -46,7 +46,7 @@
     <section class="pagination-section">
         <ul class="pagination">
             {% if posts_list.has_previous %}
-            
+
             <a href="?{{page_request_var}}={{posts_list.previous_page_number}}" class="page-link">
                 <li class="page-item"><i class='bx bx-chevron-left'></i></li>
             </a>
@@ -59,16 +59,16 @@
                 <li class="page-item">{{posts_list.number}}</li>
             </a>
             {% if posts_list.has_next%}
-            
+
             <a href="?{{page_request_var}}={{posts_list.next_page_number}}" class="page-link">
                 <li class="page-item">{{posts_list.next_page_number}}</li>
             </a>
 
             <a href="?{{page_request_var}}={{posts_list.next_page_number}}" class="page-link">
                 <li class="page-item"><i class='bx bx-chevron-right'></i></li>
-            </a> 
-            
-            
+            </a>
+
+
             {% endif %}
 
 

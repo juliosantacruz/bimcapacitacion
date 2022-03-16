@@ -45,6 +45,7 @@ class Clase(models.Model):
     def __str__(self):
         return self.title
 
+
 class Comment(models.Model):
     message = models.CharField(max_length=250)
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
