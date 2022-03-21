@@ -7,7 +7,8 @@ from django.utils.text import slugify
 
 class Student(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    profile_picture = models.ImageField(upload_to='media/cursos/users', blank=True)
+    email = models.EmailField(verbose_name="email", unique=True, null=True, blank=True)
+    #profile_picture = models.ImageField(upload_to='media/cursos/users', blank=True) <---- ahorita no es necesario una foto 
     timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

@@ -2,6 +2,17 @@ from django.contrib import admin
 from .models import Student, Tags, Cursos, Clase, Comment
 # Register your models here.
 
+#Necesarios para la autentificacion de correo
+from django.contrib.auth.admin import UserAdmin
+from .forms import CreateUserForm
+from django.contrib.auth.models import User
+
+class CustomUserAdmin(UserAdmin):
+    add_form = CreateUserForm
+
+admin.site.unregister(User)
+admin.site.register(User, CustomUserAdmin)
+
 
 class StudentAdmin(admin.ModelAdmin):
     list_display = ('id', 'user', ) #visualizar columnas
