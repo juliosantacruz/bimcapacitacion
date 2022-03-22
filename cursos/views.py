@@ -23,6 +23,7 @@ def signupuser(request):
                     'error':error,
                     'form': form,
                 }
+                return render(request, 'cursos/signupuser.html', context)
             else:
                 try: 
                     user = User.objects.create_user(
