@@ -92,11 +92,29 @@ nav .logo img {
 }
 
 .enlaces-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     transition: ease-in .5s;
 }
 
 .nav .enlaces-header>a {
+    padding: 0 10px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.logoutButton {
+    width: 100%;
     padding: 0 20px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.userStatus p {
+    padding: 0;
     color: #000000;
     text-decoration: none;
     font-weight: 700;
