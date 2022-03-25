@@ -36,13 +36,14 @@ class Cursos(models.Model):
 class Clase(models.Model):
     curso = models.ForeignKey(Cursos, on_delete=models.CASCADE)
     clase_slug = models.SlugField(unique=True, blank=True, verbose_name="url del sitio"  )
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=50)
+    subtitle = models.CharField(max_length=100 ,blank=True, null=True)
     content = RichTextUploadingField(blank=True, null=True)
     timestamp = models.DateTimeField(auto_now_add=True)
     tags= models.ManyToManyField(Tags)
     for_free = models.BooleanField(default=True)
     author = models.ForeignKey(Author, on_delete=models.CASCADE, null=True, blank=True )
-    thumbnail = models.ImageField(upload_to='media/cursos/thumbnail')
+    thumbnail = models.ImageField(upload_to='media/clases/thumbnail')
     
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title, allow_unicode=True)
