@@ -752,14 +752,6 @@ footer .redes-sociales .youtube:hover {
 
 /* CLASES */
 
-.claseList {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    width: 800px;
-}
-
 .claseElement {
     display: flex;
     flex-direction: column;
@@ -775,6 +767,10 @@ footer .redes-sociales .youtube:hover {
 
 .claseElement img {
     width: 240px;
+}
+
+.claseContent {
+    width: 800px;
 }
 
 @media screen and (max-width:900px) {

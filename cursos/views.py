@@ -108,12 +108,13 @@ def page_curso(request, curso_slug ): #Pagina principal del curso
 
 
 def page_clase(request, curso_slug, clase_slug ): #Pagina principal del curso 
+    clase = get_object_or_404(Clase, clase_slug=clase_slug)
     
     
 
 
     context = {
-    
+    'clase' : clase,
     
     }
     return render (request, 'cursos/clase.html', context)

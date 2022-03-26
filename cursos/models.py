@@ -3,6 +3,7 @@ from posts.models import Author
 # Create your models here.
 from django.contrib.auth.models import User
 from ckeditor_uploader.fields import RichTextUploadingField
+from embed_video.fields import EmbedVideoField
 from django.utils.text import slugify
 
 class Student(models.Model):
@@ -38,6 +39,7 @@ class Clase(models.Model):
     clase_slug = models.SlugField(unique=True, blank=True, verbose_name="url del sitio"  )
     title = models.CharField(max_length=50)
     subtitle = models.CharField(max_length=100 ,blank=True, null=True)
+    video = EmbedVideoField(blank=True, null=True)
     content = RichTextUploadingField(blank=True, null=True)
     timestamp = models.DateTimeField(auto_now_add=True)
     tags= models.ManyToManyField(Tags)

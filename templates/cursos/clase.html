@@ -1,4 +1,4 @@
-{% extends 'base/base.html' %} {%load static%} {%block content%}
+{% extends 'base/base.html' %}{% load embed_video_tags %} {%load static%} {%block content%}
 
 
 <div class="blank-content"></div>
@@ -6,19 +6,18 @@
 
 <section class="container">
     <div class="cursoTitle">
-        <h2>Titulo de Clase</h2>
-        <p>Bienvenido selecciona el curso que te interesa</p>
+        <h2>{{clase.title}}</h2>
+        <p>{{clase.subtitle}}</p>
     </div>
 </section>
 
 <section class="container">
-    <div class="clasesList">
-        <div class="claseElement">
-            <img src="{%static 'img/error404.png'%}" alt="">
-            <h3>Soy el titulo del Curso</h3>
-            <p>soy un curso para tu creciomietn esto es un ejemplo</p>
-        </div>
+
+    <div class="claseContent">
+
+        {% video clase.video '800x600' %}
     </div>
+
 </section>
 
 {%endblock%}
