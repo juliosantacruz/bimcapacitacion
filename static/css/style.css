@@ -749,6 +749,14 @@ footer .redes-sociales .youtube:hover {
     width: 500px;
 }
 
+.claseList {
+    width: 800px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
 
 /* CLASES */
 
