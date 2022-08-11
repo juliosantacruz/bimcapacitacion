@@ -1,9 +1,10 @@
-from email import message
+#from email import message
 from urllib import response
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Pagina
 from marketing.models import ContactForm
 from django.conf import settings
+from posts.views import *
 # Create your views here.
 
 #Utilizamos estas librerias para recaptcha
@@ -27,7 +28,7 @@ def pagina(request, slug):
         mensaje = request.POST['mensaje']
         
         #Aqui verificamos reCaptcha
-        recatcha_response = request.POST.get('g-recaptcha-response')
+        recaptcha_response = request.POST.get('g-recaptcha-response')
         url = 'https://www.google.com/recaptcha/api/siteverify'
         values = {
                 'secret': settings.GOOGLE_RECAPTCHA_SECRET_KEY,
@@ -46,10 +47,10 @@ def pagina(request, slug):
             contact_form.email = email
             contact_form.mensaje = mensaje
             contact_form.save()
-            message.success(request, 'done')
+            messages.success(request, 'done')
         else: 
-            message.error(request, 'Invalid reCAPTCHA. Please try again')
-        return redirect('home')
+            messages.error(request, 'Invalid reCAPTCHA. Please try again')
+        return redirect('homepage')
 
     context = {
         'pagina_publicada' : pagina_publicada,
