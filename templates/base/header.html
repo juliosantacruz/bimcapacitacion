@@ -10,24 +10,25 @@
             <div class="enlaces-header">
 
                 <a href="{% url 'homepage' %}">Inicio</a>
-                <a href="{% url 'cursosHomePage'%}">Cursos</a>
-                <!-- <a href="{% url 'descargaspage' %}">Descargas</a> -->
+                <!-- <a href="{% url 'cursosHomePage'%}">Cursos</a> -->
+                <a href="{% url 'descargaspage' %}">Descargas</a>
                 <a href="{% url 'blogpage' %}">Tutoriales</a>
                 <a href="/contacto">Contacto</a> {%if user.is_authenticated %}
-                <div class="userStatus">
+                <!-- <div class="userStatus">
                     <p>Bienvenido {{user.username}}</p>
                     <form action="{% url 'logoutuser' %}" method="POST">
                         {% csrf_token %}
-                        <!-- <a href="{% url 'logoutuser'%}">LogOut</a> -->
+                        
                         <button class="logoutButton" type="submit"> Logout </button>
                     </form>
-                </div>
+                </div> -->
 
 
 
                 {%else%}
-                <a href="{% url 'loginuser'%}">LogIn</a>
-                <a href="{% url 'signupuser'%}">SignUp</a> {%endif%}
+                <!-- <a href="{% url 'loginuser'%}">LogIn</a>
+                <a href="{% url 'signupuser'%}">SignUp</a>  -->
+                {%endif%}
 
             </div>
             <div class="boton-menu">

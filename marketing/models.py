@@ -16,3 +16,11 @@ class ContactForm(models.Model):
     mensaje = models.TextField()
     creado = models.DateTimeField(auto_now_add=True)
     
+
+class CursoForm(models.Model):
+    nombre = models.CharField(max_length=100)
+    email = models.CharField(max_length=100)
+    telefono = models.CharField(max_length=100)
+    mensaje = models.TextField()
+    creado = models.DateTimeField(auto_now_add=True)
+    
